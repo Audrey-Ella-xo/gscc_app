@@ -84,7 +84,7 @@
                         
                         <h2 class="h2">Already a user?</h2>
                         <%#= button_to 'Log in', log_in_path, method: :get, class: 'btn btn-landing' %>
-                        <button>Log In</button>
+                        <%= button_to "logout", destroy_user_session_path, method: :delete  %>
                    </div> 
         </div>
         
