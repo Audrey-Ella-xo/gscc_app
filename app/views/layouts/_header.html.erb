@@ -1,0 +1,13 @@
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="site-logo">
+        <%= link_to 'GSCC-APP', root_path %>
+    </div>
+    <div class="menu">
+        <div class="menu-item"></div>
+        <div class="menu-item">
+            <%= link_to "logout", destroy_user_session_path, method: :delete%>
+        </div>
+  </div>
+  
+</header>
