@@ -1,13 +1,19 @@
-<header class="navbar navbar-fixed-top">
-  <div class="container">
-    <div class="site-logo">
-        <%= link_to 'GSCC-APP', root_path %>
-    </div>
-    <div class="menu">
-        <div class="menu-item"></div>
-        <div class="menu-item">
-            <%= link_to "logout", destroy_user_session_path, method: :delete%>
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="site-logo">
+        <%= link_to 'GSCC-APP', root_path, class:'navbar-brand' %>
+      </div>
+
+      <div>
+        <div class="namer"><%= (yield(:name)) %></div>
+      </div>
+      
+      <div class="d-flex">
+        <div class="menu-item me-2">
+          <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-success" %>
         </div>
-  </div>
-  
+      </div>
+    </div>
+  </nav>
 </header>
