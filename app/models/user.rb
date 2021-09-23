@@ -13,4 +13,11 @@ class User < ApplicationRecord
         user.password = Devise.friendly_token[0,20]
       end
   end
+
+  has_one :profile, dependent: :destroy
+  after_create :init_profile
+
+  def init_profile
+    self.create_profile!
+  end
 end
