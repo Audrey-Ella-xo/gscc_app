@@ -7,9 +7,4 @@ class Profile < ApplicationRecord
         self.token ||= SecureRandom.uuid.split("-").first
     end 
 
-    # before_save :set_token
-
-    #   def set_token
-    #     self.token ||= rand(100000..999999)
-    #   end
 end
