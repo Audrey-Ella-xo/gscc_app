@@ -1,2 +1,12 @@
+<% provide(:title, @profile.firstname) %>
+<% provide(:name, @profile.firstname) %>
+
 <p id="notice"><%= notice %></p>
-<%= @profile.token %>
+
+<p>
+  <strong>PSP Number: </strong>
+  <%= @profile.token %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
