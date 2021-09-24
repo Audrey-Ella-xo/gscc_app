@@ -21,6 +21,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store', '~> 1.0'
+gem 'carrierwave',             '~> 1.2.2'
+gem "mini_magick", ">= 4.9.4"
 
 gem 'bootsnap', '>= 1.4.2', require: false
 

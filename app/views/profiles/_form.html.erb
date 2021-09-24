@@ -11,13 +11,75 @@
       </div>
     <% end %>
   
-  
     <div class="field">
-      <%= form.label :name, class: "sr-only" %>
-      <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+      <span class="picture">
+        <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "form-control", placeholder: "Upload photo" %>
+      </span>
+    </div>
+
+    <div class="field">
+      <%= form.label :firstname, class: "sr-only" %>
+      <%= form.text_field :firstname, class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :middlename, class: "sr-only" %>
+      <%= form.text_field :middlename, class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :familyname, class: "sr-only" %>
+      <%= form.text_field :familyname, class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :birhday, class: "sr-only" %>
+      <%= form.date_field :birhday, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %> 
+    </div>
+
+    <div class="field">
+    <% status = {
+        'male' => 'Male',
+        'female' => 'Female'
+        } 
+      %>
+      <%= form.label :gender %>
+      <% list = status.sort
+        list.each {|x| %>
+            <%= form.radio_button :gender, x[1] %> <%= h(x[0]) %><br />
+          <% } 
+      %>
+      
+    </div>
+
+    <div class="field">
+
+      <% status = {
+        'Single' => 'Single',
+        'Married' => 'Married',
+        'Divorced' => 'Divorced',
+        'Widowed' => 'Widowed',
+        'Seperated' => 'Seperated'
+        } 
+      %>
+      <%= form.label :marriage_status %>
+      <% list = status.sort
+        list.each {|x| %>
+            <%= form.radio_button :marriage_status, x[1] %> <%= h(x[0]) %><br />
+          <% } 
+      %>
     </div>
       
     <div class="actions">
       <%= form.submit class: "btn btn-primary" %>
     </div>
   <% end %>
+
+  <script type="text/javascript">
+  $('#user_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
