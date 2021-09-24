@@ -1,0 +1,31 @@
+<% provide(:title, "Profiles") %>
+<% provide(:name, "Profiles") %>
+
+
+<p id="notice"><%= notice %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>PSP Number</th>
+        <th colspan="3"></th>
+        <th>Family Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @profiles.each do |profile| %>
+        <tr>
+          <td><%= profile.token %></td>
+          <td><%= profile.familyname %></td>
+          <td><%= link_to 'Show', profile %></td>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New profile', new_profile_path %>

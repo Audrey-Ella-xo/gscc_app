@@ -13,4 +13,18 @@ class User < ApplicationRecord
         user.password = Devise.friendly_token[0,20]
       end
   end
+
+  has_one :profile, dependent: :destroy
+  after_create :init_profile
+
+  def init_profile
+    self.create_profile!
+  end
+
+  private
+
+  # Validates the size of an uploaded picture.
+  # def picture_size
+  #   errors.add(:picture, 'should be less than 5MB') if picture.size > 5.megabytes
+  # end
 end

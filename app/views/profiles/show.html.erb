@@ -1,0 +1,45 @@
+<% provide(:title, @profile.firstname) %>
+<% provide(:name, @profile.firstname) %>
+
+<p id="notice"><%= notice %></p>
+
+<%#= image_tag @profile.picture.url, class: "profile"%>
+<div class="container">
+  <p>
+    <strong>PSP Number: </strong>
+    <%= @profile.token %>
+  </p>
+
+  <p>
+    <strong>First Name</strong>
+    <%= @profile.firstname %>
+  </p>
+
+  <p>
+    <strong>Middle Name</strong>
+    <%= @profile.middlename %>
+  </p>
+
+  <p>
+    <strong>Surname Name</strong>
+    <%= @profile.familyname %>
+  </p>
+
+  <p>
+    <strong>Date of Birth</strong>
+    <%= @profile.birhday %>
+  </p>
+
+  <p>
+    <strong>Gender</strong>
+    <%= @profile.gender %>
+  </p>
+
+  <p>
+    <strong>Marriage Status</strong>
+    <%= @profile.marriage_status %>
+  </p>
+
+  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+  <%= link_to 'Back', profiles_path %>
+</div>
