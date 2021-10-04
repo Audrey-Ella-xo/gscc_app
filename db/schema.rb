@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_151815) do
+ActiveRecord::Schema.define(version: 2021_10_04_125837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,27 @@ ActiveRecord::Schema.define(version: 2021_09_23_151815) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "umbrella_bodies", force: :cascade do |t|
+    t.string "img"
+    t.text "aim"
+    t.string "executives"
+    t.string "meeting_day"
+    t.string "parton_saint"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_umbrella_bodies_on_user_id"
+  end
+
+  create_table "user_umbrellas", force: :cascade do |t|
+    t.bigint "umbrella_body_id", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_user_umbrellas_on_profile_id"
+    t.index ["umbrella_body_id"], name: "index_user_umbrellas_on_umbrella_body_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,4 +66,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_151815) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "umbrella_bodies", "users"
+  add_foreign_key "user_umbrellas", "profiles"
+  add_foreign_key "user_umbrellas", "umbrella_bodies"
 end

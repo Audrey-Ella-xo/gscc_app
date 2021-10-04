@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: MyString
+  aim: MyText
+  executives: MyString
+  meeting_day: MyString
+  parton_saint: MyString
+
+two:
+  img: MyString
+  aim: MyText
+  executives: MyString
+  meeting_day: MyString
+  parton_saint: MyString

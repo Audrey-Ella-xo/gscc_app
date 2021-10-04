@@ -1,0 +1,42 @@
+<%= form_with(model: umbrella_body, local: true) do |form| %>
+  <% if umbrella_body.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(umbrella_body.errors.count, "error") %> prohibited this umbrella_body from being saved:</h2>
+
+      <ul>
+        <% umbrella_body.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :img %>
+    <%= form.text_field :img %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aim %>
+    <%= form.text_area :aim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :executives %>
+    <%= form.text_field :executives %>
+  </div>
+
+  <div class="field">
+    <%= form.label :meeting_day %>
+    <%= form.text_field :meeting_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parton_saint %>
+    <%= form.text_field :parton_saint %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

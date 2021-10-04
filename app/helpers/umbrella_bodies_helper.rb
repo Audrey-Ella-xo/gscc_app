@@ -1,0 +1,2 @@
+module UmbrellaBodiesHelper
+end

@@ -1,0 +1,2 @@
+class UserUmbrella < ApplicationRecord
+end
