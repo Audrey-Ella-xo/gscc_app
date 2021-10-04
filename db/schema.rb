@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_151815) do
+ActiveRecord::Schema.define(version: 2021_10_04_173142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,52 @@ ActiveRecord::Schema.define(version: 2021_09_23_151815) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.string "token"
+    t.bigint "umbrella_body_id"
+    t.bigint "social_group_id"
+    t.index ["social_group_id"], name: "index_profiles_on_social_group_id"
+    t.index ["umbrella_body_id"], name: "index_profiles_on_umbrella_body_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "social_groups", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_social_groups_on_user_id"
+  end
+
+  create_table "umbrella_bodies", force: :cascade do |t|
+    t.string "img"
+    t.text "aim"
+    t.string "executives"
+    t.string "meeting_day"
+    t.string "parton_saint"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.string "organisation"
+    t.string "feastDay"
+    t.string "Slogan"
+    t.index ["user_id"], name: "index_umbrella_bodies_on_user_id"
+  end
+
+  create_table "user_socials", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "social_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_user_socials_on_profile_id"
+    t.index ["social_group_id"], name: "index_user_socials_on_social_group_id"
+  end
+
+  create_table "user_umbrellas", force: :cascade do |t|
+    t.bigint "umbrella_body_id", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_user_umbrellas_on_profile_id"
+    t.index ["umbrella_body_id"], name: "index_user_umbrellas_on_umbrella_body_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,5 +89,13 @@ ActiveRecord::Schema.define(version: 2021_09_23_151815) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "social_groups"
+  add_foreign_key "profiles", "umbrella_bodies"
   add_foreign_key "profiles", "users"
+  add_foreign_key "social_groups", "users"
+  add_foreign_key "umbrella_bodies", "users"
+  add_foreign_key "user_socials", "profiles"
+  add_foreign_key "user_socials", "social_groups"
+  add_foreign_key "user_umbrellas", "profiles"
+  add_foreign_key "user_umbrellas", "umbrella_bodies"
 end

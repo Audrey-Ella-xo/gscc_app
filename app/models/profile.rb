@@ -1,5 +1,7 @@
 class Profile < ApplicationRecord
     belongs_to :user
+    has_one :user_umbrella
+    has_one :user_social
 
     before_save :set_uid
 
