@@ -15,6 +15,8 @@ class User < ApplicationRecord
   end
 
   has_one :profile, dependent: :destroy
+  has_many :social_groups
+  has_many :umbrella_bodies
   after_create :init_profile
 
   def init_profile

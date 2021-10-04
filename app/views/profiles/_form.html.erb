@@ -74,6 +74,11 @@
       <%= form.label :umbrella_body_id, "Umbrella Body" %><br />
       <%= form.collection_select :umbrella_body_id, UmbrellaBody.all, :id, :organisation, prompt: true %>
     </div>
+
+    <div>
+      <%= form.label :social_group_id, "Social Group" %><br />
+      <%= form.collection_select :social_group_id, SocialGroup.all, :id, :name, prompt: true %>
+    </div>
       
     <div class="actions">
       <%= form.submit class: "btn btn-primary" %>

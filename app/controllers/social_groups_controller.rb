@@ -21,7 +21,7 @@ class SocialGroupsController < ApplicationController
 
   # POST /social_groups or /social_groups.json
   def create
-    @social_group = SocialGroup.new(social_group_params)
+    @social_group = current_user.social_groups.build(social_group_params)
 
     respond_to do |format|
       if @social_group.save

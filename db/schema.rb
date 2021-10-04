@@ -27,12 +27,10 @@ ActiveRecord::Schema.define(version: 2021_10_04_173142) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.string "token"
-    t.bigint "umbrella_id"
     t.bigint "umbrella_body_id"
     t.bigint "social_group_id"
     t.index ["social_group_id"], name: "index_profiles_on_social_group_id"
     t.index ["umbrella_body_id"], name: "index_profiles_on_umbrella_body_id"
-    t.index ["umbrella_id"], name: "index_profiles_on_umbrella_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -57,13 +55,6 @@ ActiveRecord::Schema.define(version: 2021_10_04_173142) do
     t.string "feastDay"
     t.string "Slogan"
     t.index ["user_id"], name: "index_umbrella_bodies_on_user_id"
-  end
-
-  create_table "umbrellas", force: :cascade do |t|
-    t.string "name"
-    t.string "slogan"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_socials", force: :cascade do |t|
@@ -100,7 +91,6 @@ ActiveRecord::Schema.define(version: 2021_10_04_173142) do
 
   add_foreign_key "profiles", "social_groups"
   add_foreign_key "profiles", "umbrella_bodies"
-  add_foreign_key "profiles", "umbrellas"
   add_foreign_key "profiles", "users"
   add_foreign_key "social_groups", "users"
   add_foreign_key "umbrella_bodies", "users"

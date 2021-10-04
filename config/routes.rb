@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   root 'static_pages#landing'
   resources :profiles
   resources :umbrella_bodies
+  resources :social_groups
   
 end

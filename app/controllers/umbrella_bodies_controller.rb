@@ -21,7 +21,7 @@ class UmbrellaBodiesController < ApplicationController
 
   # POST /umbrella_bodies or /umbrella_bodies.json
   def create
-    @umbrella_body = UmbrellaBody.new(umbrella_body_params)
+    @umbrella_body = current_user.umbrella_bodies.build(umbrella_body_params)
 
     respond_to do |format|
       if @umbrella_body.save
@@ -64,6 +64,6 @@ class UmbrellaBodiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def umbrella_body_params
-      params.require(:umbrella_body).permit(:img, :aim, :executives, :meeting_day, :parton_saint, :organisation, :feastDay, :Slogan)
+      params.require(:umbrella_body).permit(:img, :aim, :executives, :meeting_day, :parton_saint, :organisation, :feastDay, :Slogan, :user_id)
     end
 end
