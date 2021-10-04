@@ -64,6 +64,6 @@ class UmbrellaBodiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def umbrella_body_params
-      params.require(:umbrella_body).permit(:img, :aim, :executives, :meeting_day, :parton_saint)
+      params.require(:umbrella_body).permit(:img, :aim, :executives, :meeting_day, :parton_saint, :organisation, :feastDay :Slogan)
     end
 end
