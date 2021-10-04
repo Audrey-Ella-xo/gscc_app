@@ -19,5 +19,25 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Visitation of the Sick</a>
         </li>
+
+        <div>
+            <%= link_to "Account Settings", profiles_path %>  
+        </div>
     </ul>
+
+    <div>
+        <h2>Admin Corner<h2>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <%= link_to 'Umbrella Body Feature', umbrella_bodies_path, class:'nav-link' %>
+            </li>
+
+            <li class="nav-item">
+                <%= link_to 'Social Groups Feature', social_groups_path, class:'nav-link' %>
+            </li>
+
+
+        </ul>
+
+    </div>
 </aside>
