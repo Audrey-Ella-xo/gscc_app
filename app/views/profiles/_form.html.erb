@@ -69,6 +69,11 @@
           <% } 
       %>
     </div>
+
+    <div>
+      <%= form.label :umbrella_body_id, "Umbrella Body" %><br />
+      <%= form.collection_select :umbrella_body_id, UmbrellaBody.all, :id, :organisation, prompt: true %>
+    </div>
       
     <div class="actions">
       <%= form.submit class: "btn btn-primary" %>
