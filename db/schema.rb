@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_121022) do
+ActiveRecord::Schema.define(version: 2021_10_08_122238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(version: 2021_10_08_121022) do
   end
 
   create_table "user_societies", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "profile_id", null: false
     t.bigint "society_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_user_societies_on_profile_id"
     t.index ["society_id"], name: "index_user_societies_on_society_id"
-    t.index ["user_id"], name: "index_user_societies_on_user_id"
   end
 
   create_table "user_umbrellas", force: :cascade do |t|
@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(version: 2021_10_08_121022) do
   add_foreign_key "umbrella_bodies", "users"
   add_foreign_key "user_socials", "profiles"
   add_foreign_key "user_socials", "social_groups"
+  add_foreign_key "user_societies", "profiles"
   add_foreign_key "user_societies", "societies"
-  add_foreign_key "user_societies", "users"
   add_foreign_key "user_umbrellas", "profiles"
   add_foreign_key "user_umbrellas", "umbrella_bodies"
 end
