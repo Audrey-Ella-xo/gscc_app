@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :societies
   resources :social_groups
   resources :umbrella_bodies
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }

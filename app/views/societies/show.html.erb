@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @society.name %>
+</p>
+
+<p>
+  <strong>Meeting-day:</strong>
+  <%= @society.meeting-day %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @society.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_society_path(@society) %> |
+<%= link_to 'Back', societies_path %>
