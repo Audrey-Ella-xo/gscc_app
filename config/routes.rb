@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :profiles
   resources :umbrella_bodies
   resources :social_groups
+  resources :societies
   
 end

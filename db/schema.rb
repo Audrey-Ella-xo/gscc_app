@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_122238) do
+ActiveRecord::Schema.define(version: 2021_10_08_132234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 2021_10_08_122238) do
     t.string "token"
     t.bigint "umbrella_body_id"
     t.bigint "social_group_id"
+    t.bigint "society_id"
     t.index ["social_group_id"], name: "index_profiles_on_social_group_id"
+    t.index ["society_id"], name: "index_profiles_on_society_id"
     t.index ["umbrella_body_id"], name: "index_profiles_on_umbrella_body_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -108,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_10_08_122238) do
   end
 
   add_foreign_key "profiles", "social_groups"
+  add_foreign_key "profiles", "societies"
   add_foreign_key "profiles", "umbrella_bodies"
   add_foreign_key "profiles", "users"
   add_foreign_key "social_groups", "users"

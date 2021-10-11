@@ -79,6 +79,11 @@
       <%= form.label :social_group_id, "Social Group" %><br />
       <%= form.collection_select :social_group_id, SocialGroup.all, :id, :name, prompt: true %>
     </div>
+
+    <div>
+      <%= form.label :society_id, "Society" %><br />
+      <%= form.collection_select :society_id, Society.all, :id, :name, prompt: true %>
+    </div>
       
     <div class="actions">
       <%= form.submit class: "btn btn-primary" %>

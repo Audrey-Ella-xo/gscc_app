@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
     private
 
     def profile_params
-        params.require(:profile).permit(:firstname, :middlename, :familyname, :picture, :birhday, :gender, :marriage_status, :umbrella_body_id, :social_group_id)
+        params.require(:profile).permit(:firstname, :middlename, :familyname, :picture, :birhday, :gender, :marriage_status, :umbrella_body_id, :social_group_id, :society_id)
     end
     
     def find_profile

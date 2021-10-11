@@ -21,7 +21,7 @@ class SocietiesController < ApplicationController
 
   # POST /societies or /societies.json
   def create
-    @society = Society.new(society_params)
+    @society = current_user.societies.build(society_params)
 
     respond_to do |format|
       if @society.save
@@ -64,6 +64,6 @@ class SocietiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def society_params
-      params.require(:society).permit(:name, :meeting-day, :user_id)
+      params.require(:society).permit(:name, :meeting_day, :user_id)
     end
 end
