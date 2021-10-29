@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booking type:</strong>
+  <%= @mass_booking.booking_type %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @mass_booking.location %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @mass_booking.purpose %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @mass_booking.duration %>
+</p>
+
+<p>
+  <strong>Starts at:</strong>
+  <%= @mass_booking.starts_at %>
+</p>
+
+<p>
+  <strong>Ends at:</strong>
+  <%= @mass_booking.ends_at %>
+</p>
+
+<%= link_to 'Edit', edit_mass_booking_path(@mass_booking) %> |
+<%= link_to 'Back', mass_bookings_path %>

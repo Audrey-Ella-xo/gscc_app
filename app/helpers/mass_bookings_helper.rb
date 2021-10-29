@@ -1,0 +1,2 @@
+module MassBookingsHelper
+end

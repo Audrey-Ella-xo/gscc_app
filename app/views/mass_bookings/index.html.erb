@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mass Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Booking type</th>
+      <th>Location</th>
+      <th>Purpose</th>
+      <th>Duration</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mass_bookings.each do |mass_booking| %>
+      <tr>
+        <td><%= mass_booking.booking_type %></td>
+        <td><%= mass_booking.location %></td>
+        <td><%= mass_booking.purpose %></td>
+        <td><%= mass_booking.duration %></td>
+        <td><%= mass_booking.starts_at %></td>
+        <td><%= mass_booking.ends_at %></td>
+        <td><%= link_to 'Show', mass_booking %></td>
+        <td><%= link_to 'Edit', edit_mass_booking_path(mass_booking) %></td>
+        <td><%= link_to 'Destroy', mass_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mass Booking', new_mass_booking_path %>

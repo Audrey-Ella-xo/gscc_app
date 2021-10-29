@@ -1,0 +1,2 @@
+class MassBooking < ApplicationRecord
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mass_bookings
   resources :societies
   resources :social_groups
   resources :umbrella_bodies
